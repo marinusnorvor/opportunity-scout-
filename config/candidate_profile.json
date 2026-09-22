@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "location": {
+      "country": "Ghana",
+      "city": "Accra / Any",
+      "citizenship": "Ghanaian",
+      "work_authorization": ["Ghana"]
+    },
+    "education": {
+      "level": "Undergraduate",
+      "field_of_study": "Engineering / Computer Science / Applied Sciences",
+      "status": "Currently Enrolled"
+    },
+    "preferences": {
+      "accepted_work_modes": [
+        "Remote - Worldwide",
+        "Onsite - Fully Funded Abroad",
+        "Onsite - Ghana",
+        "Hybrid - Ghana"
+      ],
+      "funding_requirement": {
+        "international_onsite": {
+          "require_flight_coverage": true,
+          "require_accommodation": true,
+          "require_stipend": true
+        },
+        "remote": {
+          "require_paid": true,
+          "currency_preference": ["USD", "EUR", "GBP", "GHS"]
+        },
+        "no_application_fee": true
+      },
+      "interest_areas": [
+        "AI & Machine Learning",
+        "Core Software & Systems",
+        "Hardware, Embedded & Robotics",
+        "Technical Product & Business",
+        "Academic & Research Internships"
+      ]
+    },
+    "alert_settings": {
+      "top_n_count": 3,
+      "email_subject_prefix": "[Internship Scout] Top 3 Daily Opportunities"
+    }
+  }
+}

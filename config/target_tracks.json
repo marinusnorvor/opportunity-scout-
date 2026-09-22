@@ -1,0 +1,291 @@
+{
+  "tracks": [
+    {
+      "id": "ai_agent_engineer",
+      "name": "AI Solutions / Agent Engineer Intern",
+      "category": "AI & Machine Learning",
+      "keywords": [
+        "AI Agent",
+        "Agentic",
+        "LLM Engineer",
+        "Generative AI",
+        "AI Solutions",
+        "Prompt Engineering",
+        "Autonomous Agents",
+        "LangChain",
+        "LlamaIndex"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "mlops",
+      "name": "Machine Learning Operations (MLOps) Intern",
+      "category": "AI & Machine Learning",
+      "keywords": [
+        "MLOps",
+        "Machine Learning Operations",
+        "Model Deployment",
+        "Kubeflow",
+        "MLflow",
+        "Feature Store",
+        "Model Monitoring",
+        "Triton",
+        "Model Serving"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "embedded_systems",
+      "name": "Embedded Systems Intern",
+      "category": "Hardware, Embedded & Robotics",
+      "keywords": [
+        "Embedded Systems",
+        "Firmware",
+        "RTOS",
+        "Microcontroller",
+        "ARM Cortex",
+        "Embedded C",
+        "Embedded Linux",
+        "STM32",
+        "FPGA",
+        "VHDL",
+        "Verilog"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "robotics_mechatronics",
+      "name": "Robotics / Mechatronics Intern",
+      "category": "Hardware, Embedded & Robotics",
+      "keywords": [
+        "Robotics",
+        "Mechatronics",
+        "ROS",
+        "ROS2",
+        "Kinematics",
+        "Motion Planning",
+        "Autonomous Systems",
+        "Computer Vision",
+        "Actuators",
+        "Perception"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "hardware_engineering",
+      "name": "Hardware Engineering Intern",
+      "category": "Hardware, Embedded & Robotics",
+      "keywords": [
+        "Hardware Engineering",
+        "PCB Design",
+        "Circuit Design",
+        "Schematic Capture",
+        "Altium",
+        "KiCAD",
+        "Hardware Test",
+        "ASIC",
+        "Electronics"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "controls_instrumentation",
+      "name": "Controls & Instrumentation Intern",
+      "category": "Hardware, Embedded & Robotics",
+      "keywords": [
+        "Controls Engineer",
+        "Instrumentation",
+        "Feedback Control",
+        "PID Control",
+        "PLC",
+        "Sensors",
+        "Data Acquisition",
+        "SCADA",
+        "Control Systems"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "process_automation_iiot",
+      "name": "Process Automation / Industrial IoT (IIoT) Intern",
+      "category": "Hardware, Embedded & Robotics",
+      "keywords": [
+        "Industrial IoT",
+        "IIoT",
+        "Process Automation",
+        "Industry 4.0",
+        "Edge Computing",
+        "MQTT",
+        "Modbus",
+        "OPC UA",
+        "Smart Factory"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "swe_general",
+      "name": "Software Engineering (SWE) Intern",
+      "category": "Core Software & Systems",
+      "keywords": [
+        "Software Engineering",
+        "Software Engineer",
+        "SWE Intern",
+        "Full Stack Intern",
+        "Software Developer"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "backend_dev",
+      "name": "Backend Developer Intern (Python / Java)",
+      "category": "Core Software & Systems",
+      "keywords": [
+        "Backend Developer",
+        "Backend Engineer",
+        "Python Intern",
+        "Java Intern",
+        "FastAPI",
+        "Django",
+        "Spring Boot",
+        "REST API",
+        "Microservices"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "cloud_systems",
+      "name": "Systems / Cloud Engineering Intern",
+      "category": "Core Software & Systems",
+      "keywords": [
+        "Cloud Engineering",
+        "Systems Engineer",
+        "Site Reliability",
+        "SRE",
+        "DevOps Intern",
+        "AWS",
+        "GCP",
+        "Azure",
+        "Kubernetes",
+        "Terraform",
+        "Linux Systems"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "network_infrastructure",
+      "name": "Network Engineering / Infrastructure Intern",
+      "category": "Core Software & Systems",
+      "keywords": [
+        "Network Engineering",
+        "Network Engineer",
+        "Infrastructure Intern",
+        "TCP/IP",
+        "BGP",
+        "Software Defined Networking",
+        "SDN",
+        "Network Security",
+        "Cisco"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "cybersecurity_soc",
+      "name": "Cybersecurity / SOC Analyst Intern",
+      "category": "Core Software & Systems",
+      "keywords": [
+        "Cybersecurity",
+        "Security Analyst",
+        "SOC Analyst",
+        "Threat Intelligence",
+        "Vulnerability Assessment",
+        "Incident Response",
+        "SIEM",
+        "Infosec"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "apm",
+      "name": "Associate Product Manager (APM) Intern",
+      "category": "Technical Product & Business",
+      "keywords": [
+        "Associate Product Manager",
+        "APM Intern",
+        "Product Manager Intern",
+        "Technical Product Management",
+        "Product Strategy"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "solutions_architecture",
+      "name": "Solutions Architecture / Solutions Engineering Intern",
+      "category": "Technical Product & Business",
+      "keywords": [
+        "Solutions Architecture",
+        "Solutions Architect",
+        "Solutions Engineering",
+        "Sales Engineering Intern",
+        "Technical Solutions"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "tech_business_analyst",
+      "name": "Technical Business Analyst Intern",
+      "category": "Technical Product & Business",
+      "keywords": [
+        "Technical Business Analyst",
+        "IT Business Analyst",
+        "Systems Analyst",
+        "Requirements Analysis",
+        "Business Systems"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "quant_data_science",
+      "name": "Quantitative Modeling / Data Science Intern",
+      "category": "AI & Machine Learning",
+      "keywords": [
+        "Quantitative Modeling",
+        "Quantitative Analyst",
+        "Quant Research",
+        "Data Science Intern",
+        "Statistical Modeling",
+        "Time Series",
+        "Econometrics"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "computational_applied_math",
+      "name": "Computational Research / Applied Math Intern",
+      "category": "AI & Machine Learning",
+      "keywords": [
+        "Computational Research",
+        "Applied Math",
+        "Numerical Analysis",
+        "Scientific Computing",
+        "Research Intern",
+        "Algorithm Development",
+        "Simulation"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "devrel_community",
+      "name": "Developer Relations (DevRel) / Technical Community Intern",
+      "category": "Technical Product & Business",
+      "keywords": [
+        "Developer Relations",
+        "DevRel Intern",
+        "Developer Advocate",
+        "Technical Community",
+        "Technical Writing",
+        "Open Source Advocate"
+      ],
+      "priority": 1
+    }
+  ]
+}
