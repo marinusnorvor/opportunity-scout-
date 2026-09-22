@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-22T04:21:24.719130+00:00",
+  "updated_at": "2026-09-22T06:35:13.556390+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -133,6 +133,54 @@
       "company": "Scaleai",
       "url": "https://job-boards.greenhouse.io/scaleai/jobs/4689954005",
       "first_seen": "2026-09-22T04:21:24.719126+00:00"
+    },
+    "f498f306fbc0d1a9f66a3a81ff5b3ace589c6e15d3eaa1d917eb005a0da764ff": {
+      "title": "FinTech Operations & Product Intern",
+      "company": "Zeepay Ghana",
+      "url": "https://www.myzeepay.com/careers",
+      "first_seen": "2026-09-22T06:35:13.556331+00:00"
+    },
+    "e43f366b5f244cbbb88eb9eb42ed1e0a534c460a5e51545cd7da19f309db4eb4": {
+      "title": "Software & Solutions Engineering Trainee",
+      "company": "Hubtel Ghana",
+      "url": "https://explore.hubtel.com/careers/",
+      "first_seen": "2026-09-22T06:35:13.556363+00:00"
+    },
+    "cb04bd1b9bdafada1427e9faebe49618ef0341fde9bae73368d81807e7f9391a": {
+      "title": "Technology & Digital Skills Graduate Trainee",
+      "company": "Amalitech Ghana",
+      "url": "https://www.amalitech.com/careers",
+      "first_seen": "2026-09-22T06:35:13.556367+00:00"
+    },
+    "7428f9170a7ebfc5ddfb9831022c30f9cda7e553ae5e65307be252f542cb52f4": {
+      "title": "Entrepreneurial & Product Management Fellow",
+      "company": "MEST Africa",
+      "url": "https://meltwater.org/2022/04/19/mest-training-program-updates-deadline-extension-new-dates/",
+      "first_seen": "2026-09-22T06:35:13.556371+00:00"
+    },
+    "9b488f4d17abb2a992ae8f0156583b0267afdbb8dd3cb0e15fcb9ed0202988bd": {
+      "title": "Graduate & Student Trainee Scheme",
+      "company": "MTN Ghana",
+      "url": "https://www.mtn.com.gh/careers",
+      "first_seen": "2026-09-22T06:35:13.556375+00:00"
+    },
+    "45b0b5382a93d6540524e6fac7deccb34a661e7cce22305ff03137635ca7c862": {
+      "title": "EPFL Summer Research Fellowship in Computer Science (E3)",
+      "company": "EPFL (\u00c9cole Polytechnique F\u00e9d\u00e9rale de Lausanne)",
+      "url": "https://www.epfl.ch/schools/ic/education/summer-at-epfl/",
+      "first_seen": "2026-09-22T06:35:13.556378+00:00"
+    },
+    "b3dafc9fbdb83ad1aa123263e781a0fc8eacca85e698c3423c94c277ab79f6ca": {
+      "title": "United Nations Global Secretariat Internship Programme",
+      "company": "United Nations (UN Careers)",
+      "url": "https://careers.un.org/lbw/home.aspx?viewtype=SJ&exp=All&level=0&occ=0&sub=0&sort=3",
+      "first_seen": "2026-09-22T06:35:13.556381+00:00"
+    },
+    "aedd3b3e4bdf8405ccbc626f22cc323c7ad292efa19e31e32fb6fe5c2379acc5": {
+      "title": "WHO Global Health & Biomedical Internship Programme",
+      "company": "World Health Organization (WHO)",
+      "url": "https://www.who.int/careers/internship-programme",
+      "first_seen": "2026-09-22T06:35:13.556386+00:00"
     }
   }
 }
