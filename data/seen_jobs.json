@@ -1,5 +1,138 @@
 {
   "version": 1,
-  "updated_at": "2026-09-22T00:00:00Z",
-  "seen": {}
+  "updated_at": "2026-09-22T04:21:24.719130+00:00",
+  "seen": {
+    "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
+      "title": "Summer Student Programme (Non-Member State Students)",
+      "company": "CERN (European Organization for Nuclear Research)",
+      "url": "https://careers.cern/summer-student-programme",
+      "first_seen": "2026-09-22T04:21:24.719059+00:00"
+    },
+    "d0c6ac31d81b8ee37ce31cfd195302d09fb692996de83baa7fba4c79a1c302c8": {
+      "title": "EPFL Summer Research Fellowship in Computer Science (E3)",
+      "company": "EPFL (\u00c9cole Polytechnique F\u00e9d\u00e9rale de Lausanne)",
+      "url": "https://www.epfl.ch/schools/ic/research/summer-at-epfl/",
+      "first_seen": "2026-09-22T04:21:24.719074+00:00"
+    },
+    "9257cbec8993be7112b0be1a058497f4c65b907bbf844f521290dd4625f99d0e": {
+      "title": "Student Summer Research Fellowship (Computer Science & Systems)",
+      "company": "ETH Zurich",
+      "url": "https://inf.ethz.ch/studies/summer-research-fellowship.html",
+      "first_seen": "2026-09-22T04:21:24.719078+00:00"
+    },
+    "1794bf118852ed5ee42ca11a21f0ea59fedac99d83a0608638c0b7eb7795d999": {
+      "title": "OIST Research Internship Program (AI, Robotics & Computational Science)",
+      "company": "OIST (Okinawa Institute of Science and Technology)",
+      "url": "https://admissions.oist.jp/oist-research-internship-program",
+      "first_seen": "2026-09-22T04:21:24.719080+00:00"
+    },
+    "7090873479d36fc36fe79806d8e7a674d7061cb57234d7efea5eb64a1adfd6de": {
+      "title": "Visiting Student Research Program (VSRP)",
+      "company": "KAUST (King Abdullah University of Science and Technology)",
+      "url": "https://vsrp.kaust.edu.sa/",
+      "first_seen": "2026-09-22T04:21:24.719082+00:00"
+    },
+    "f21a780a5094bac247ef920da173cfbe08badd71ec8a4ad250f0d7d19db14026": {
+      "title": "Outreachy Global Open Source Research & Engineering Internship",
+      "company": "Outreachy",
+      "url": "https://www.outreachy.org/",
+      "first_seen": "2026-09-22T04:21:24.719085+00:00"
+    },
+    "914ad62cb3cd3280b95c91f720a928c7d93bd575c30775b4b0e186e6fddf3681": {
+      "title": "Google Summer of Code (GSoC) Contributor",
+      "company": "Google",
+      "url": "https://summerofcode.withgoogle.com/",
+      "first_seen": "2026-09-22T04:21:24.719087+00:00"
+    },
+    "ec5de215f34abe442c63bf702987199c01aa0f9009440bb7521e6383e9cbcdd5": {
+      "title": "Finance Fellow - Human Frontier Collective (UK)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4613327005",
+      "first_seen": "2026-09-22T04:21:24.719091+00:00"
+    },
+    "83f752ed16c760297b10d27d22ae0e58526174235251762bab08c35fe490c5e3": {
+      "title": "Finance Fellow - Human Frontier Collective (US)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4565836005",
+      "first_seen": "2026-09-22T04:21:24.719094+00:00"
+    },
+    "9780456911d5aabecdd7560993ce7031a97d8f781df501283ebdcbc9bafa85c7": {
+      "title": "Legal Fellow - Human Frontier Collective (UK)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4613333005",
+      "first_seen": "2026-09-22T04:21:24.719097+00:00"
+    },
+    "e24f87a10832ac873d908c68804bb4bfa7b5287d9ae0009af24edf1c66c57c1a": {
+      "title": "Legal Fellow - Human Frontier Collective (US)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4565834005",
+      "first_seen": "2026-09-22T04:21:24.719100+00:00"
+    },
+    "9f202b812e6c92b353ef4f379267c320c88d9410eab540631e83be5b930e153d": {
+      "title": "Machine Learning Fellow - Human Frontier Collective (Canada)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4661650005",
+      "first_seen": "2026-09-22T04:21:24.719103+00:00"
+    },
+    "05f6f83c350279f1bea60737262d143a6c007c33590214760b1847b309a86c7a": {
+      "title": "Machine Learning Fellow - Human Frontier Collective (UK)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4661647005",
+      "first_seen": "2026-09-22T04:21:24.719105+00:00"
+    },
+    "6ba80ac7a62171ee23027977e4a64684cdb2c7465f5e96e34715df00d1809b0e": {
+      "title": "Machine Learning Fellow - Human Frontier Collective (US)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4660340005",
+      "first_seen": "2026-09-22T04:21:24.719108+00:00"
+    },
+    "873db5e382ecd650065d38706b68f989f4c7556ff619cbbc32bc30d4cbd20f33": {
+      "title": "Medical Fellow - Human Frontier Collective (UK)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4612329005",
+      "first_seen": "2026-09-22T04:21:24.719111+00:00"
+    },
+    "0eb94755784b9e17b6293acba84a89172332c72aaec75d9e14ca540cbbee9683": {
+      "title": "Medical Fellow - Human Frontier Collective (US)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4591782005",
+      "first_seen": "2026-09-22T04:21:24.719113+00:00"
+    },
+    "7000af3f0f2ab1163accbc65c262105921653a3de1a2ede17a334f1b9e5bbb3e": {
+      "title": "Software Engineering Intern (Summer 2027) ",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4730834005",
+      "first_seen": "2026-09-22T04:21:24.719115+00:00"
+    },
+    "86d63151785f80d7c59b399d9c2aad7f39e838813da27709dc5c5fad23694c8e": {
+      "title": "Software Engineering Intern (Summer 2027) ",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4730845005",
+      "first_seen": "2026-09-22T04:21:24.719118+00:00"
+    },
+    "174a9e5f6e5bd7fcc06cf6c4cb145466d9cb970c126a23f17d6651f3a86edaa5": {
+      "title": "Software Engineering Intern (Summer 2027) ",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4730846005",
+      "first_seen": "2026-09-22T04:21:24.719120+00:00"
+    },
+    "f535428588da51e95f8c8d792a08733c951d9730a85207e8e573133eaa6b46e9": {
+      "title": "STEM Fellow - Human Frontier Collective (UK)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4620719005",
+      "first_seen": "2026-09-22T04:21:24.719122+00:00"
+    },
+    "5ef01d886b3c1b97e5f132206502560884dfcc80c983fda2c0ba0dcc55ca1fbd": {
+      "title": "STEM Fellow - Human Frontier Collective (US)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4574113005",
+      "first_seen": "2026-09-22T04:21:24.719124+00:00"
+    },
+    "c27224bcd75b4cfb330f27e7dab0314bee830ce5f87533566f6c9953d4a42f9d": {
+      "title": "SWE Fellow - Human Frontier Collective (Canada)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4689954005",
+      "first_seen": "2026-09-22T04:21:24.719126+00:00"
+    }
+  }
 }
