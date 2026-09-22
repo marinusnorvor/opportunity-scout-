@@ -5,6 +5,7 @@ specifically filtering for Worldwide / Anywhere availability.
 """
 
 import logging
+import re
 from typing import List, Optional
 from src.scrapers.base_scraper import BaseScraper
 from src.models import JobOpportunity, WorkMode

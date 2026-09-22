@@ -1,6 +1,7 @@
 """Direct ATS API Scraper for Greenhouse, Lever, and Ashby."""
 
 import logging
+import re
 from typing import List, Optional, Dict, Any
 from src.scrapers.base_scraper import BaseScraper
 from src.models import JobOpportunity, WorkMode, FundingBenefits, FundingTier

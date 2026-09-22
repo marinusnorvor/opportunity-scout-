@@ -36,9 +36,9 @@ class GoogleSheetsAdapter:
         service_account_path: Optional[str] = None,
         fallback_csv_path: Optional[Path] = None,
     ):
-        self.sheet_id = sheet_id or os.getenv("GOOGLE_SHEET_ID")
-        self.service_account_json = service_account_json or os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON")
-        self.service_account_path = service_account_path or os.getenv("GOOGLE_SERVICE_ACCOUNT_PATH")
+        self.sheet_id = (sheet_id or os.getenv("GOOGLE_SHEET_ID") or "").strip() or None
+        self.service_account_json = (service_account_json or os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON") or "").strip() or None
+        self.service_account_path = (service_account_path or os.getenv("GOOGLE_SERVICE_ACCOUNT_PATH") or "").strip() or None
         
         self.fallback_csv_path = fallback_csv_path or (
             Path(__file__).resolve().parent.parent.parent / "output" / "opportunities.csv"

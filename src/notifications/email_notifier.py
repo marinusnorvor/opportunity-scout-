@@ -24,11 +24,20 @@ class EmailNotifier:
         smtp_password: Optional[str] = None,
         recipient_email: Optional[str] = None,
     ):
-        self.smtp_host = smtp_host or os.getenv("SMTP_HOST", "smtp.gmail.com")
-        self.smtp_port = smtp_port or int(os.getenv("SMTP_PORT", 587))
-        self.smtp_user = smtp_user or os.getenv("SMTP_USER")
-        self.smtp_password = smtp_password or os.getenv("SMTP_PASSWORD")
-        self.recipient_email = recipient_email or os.getenv("RECIPIENT_EMAIL")
+        self.smtp_host = (smtp_host or os.getenv("SMTP_HOST") or "smtp.gmail.com").strip()
+        
+        raw_port = smtp_port or os.getenv("SMTP_PORT")
+        if raw_port and str(raw_port).strip():
+            try:
+                self.smtp_port = int(str(raw_port).strip())
+            except ValueError:
+                self.smtp_port = 587
+        else:
+            self.smtp_port = 587
+
+        self.smtp_user = (smtp_user or os.getenv("SMTP_USER") or "").strip() or None
+        self.smtp_password = (smtp_password or os.getenv("SMTP_PASSWORD") or "").strip() or None
+        self.recipient_email = (recipient_email or os.getenv("RECIPIENT_EMAIL") or "").strip() or None
 
     def send_top_opportunities_digest(
         self,
