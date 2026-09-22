@@ -16,16 +16,18 @@ class GoogleSheetsAdapter:
 
     HEADER_ROW = [
         "Discovered Date",
-        "Track",
+        "Field / Industry",
         "Role Title",
-        "Company / Lab",
-        "Funding Tier",
-        "Benefits Breakdown",
+        "Company / Organization",
+        "Company Overview",
+        "Work Mode",
+        "Compensation Status",
         "Location",
+        "Outside-Ghana Funding",
         "Deadline",
         "Ranking Score",
         "Application URL",
-        "Verification Status",
+        "Verification Proof",
         "Source Channel",
     ]
 

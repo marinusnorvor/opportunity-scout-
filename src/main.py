@@ -1,8 +1,14 @@
-"""Autonomous Opportunity Finder & Verification Engine - Pipeline Orchestrator."""
+"""Multi-Agent Opportunity Intelligence System - Pipeline Orchestrator.
+
+Orchestrates 4 specialized autonomous agents:
+- Agent 1 (ScoutAgent): Ingests listings across Ghana, remote feeds, and global fellowships.
+- Agent 2 (InvestigatorAgent): Deep link audit, active form detection & company due diligence.
+- Agent 3 (CognitiveAgent): Groq LLaMA 3.3 70B & Gemini Flash structured intelligence extraction.
+- Agent 4 (CuratorAgent): Balanced quota ranking (Ghana + Intl + Remote), Google Sheets & email delivery.
+"""
 
 import argparse
 import logging
-import os
 import sys
 from pathlib import Path
 from dotenv import load_dotenv
@@ -10,147 +16,127 @@ from dotenv import load_dotenv
 # Add project root to sys.path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.scrapers import (
-    ATSScraper,
-    DeepSearchEngine,
-    RemoteFeedScraper,
-    ResearchPortalsScraper,
-)
-from src.verification import ScamVerifier
-from src.evaluation import EligibilityFilter, OpportunityRanker
-from src.storage import Deduplicator, GoogleSheetsAdapter
-from src.notifications import EmailNotifier
-
 # Configure UTF-8 for Windows consoles
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
+from src.agents import (
+    ScoutAgent,
+    InvestigatorAgent,
+    CognitiveAgent,
+    CuratorAgent,
+)
+from src.storage import Deduplicator
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     handlers=[logging.StreamHandler(sys.stdout)],
 )
-logger = logging.getLogger("PipelineOrchestrator")
+logger = logging.getLogger("SystemOrchestrator")
 
 
 def run_pipeline(
     dry_run: bool = False,
-    limit: int = 20,
+    limit: int = 15,
     skip_deep_search: bool = False,
 ) -> None:
-    """Execute the end-to-end autonomous discovery and verification pipeline."""
+    """Execute the multi-agent opportunity intelligence pipeline."""
     load_dotenv()
-    logger.info("=" * 60)
-    logger.info("🚀 STARTING AUTONOMOUS OPPORTUNITY DISCOVERY PIPELINE")
-    logger.info("=" * 60)
+    logger.info("=" * 65)
+    logger.info("🚀 STARTING MULTI-AGENT OPPORTUNITY INTELLIGENCE SYSTEM")
+    logger.info("=" * 65)
 
-    # 1. Initialize Core Engines
+    # 1. Initialize Autonomous Agents & Deduplication
+    scout = ScoutAgent()
+    investigator = InvestigatorAgent()
+    cognitive = CognitiveAgent()
+    curator = CuratorAgent()
     deduplicator = Deduplicator()
-    verifier = ScamVerifier()
-    eligibility_filter = EligibilityFilter()
-    ranker = OpportunityRanker()
-    sheets_adapter = GoogleSheetsAdapter()
-    email_notifier = EmailNotifier()
 
-    # 2. Ingestion: Run Scrapers
-    scrapers = [
-        ResearchPortalsScraper(),
-        RemoteFeedScraper(),
-        ATSScraper(),
-    ]
-    if not skip_deep_search:
-        scrapers.append(DeepSearchEngine())
+    # 2. Agent 1: Scout Agent (Ingestion across all channels)
+    logger.info("\n--- [AGENT 1: SCOUT AGENT] Multi-Source Ingestion ---")
+    raw_candidates = scout.scout_all(
+        limit_per_source=limit,
+        skip_deep_search=skip_deep_search,
+    )
+    total_scanned = len(raw_candidates)
 
-    all_raw_jobs = []
-    for scraper in scrapers:
-        try:
-            logger.info(f"==> Launching {scraper.name}...")
-            jobs = scraper.fetch_opportunities(limit=limit)
-            all_raw_jobs.extend(jobs)
-            logger.info(f"[{scraper.name}] Retrieved {len(jobs)} candidates.")
-        except Exception as exc:
-            logger.error(f"[{scraper.name}] Unexpected scraper failure: {exc}")
+    # Filter out previously processed opportunities
+    unseen_jobs = deduplicator.filter_unseen(raw_candidates)
+    logger.info(f"[ScoutAgent] Raw candidates: {total_scanned} | Brand new (unseen): {len(unseen_jobs)}")
 
-    total_scanned = len(all_raw_jobs)
-    logger.info(f"\n📊 Total raw opportunities collected: {total_scanned}")
-
-    # 3. Deduplication: Filter out already processed opportunities
-    fresh_jobs = deduplicator.filter_unseen(all_raw_jobs)
-    logger.info(f"✨ Brand new (unseen) opportunities: {len(fresh_jobs)}")
-
-    # 4. Verification (Real vs. Fake / Scam Detection)
+    # 3. Agent 2: Investigator Agent (Deep Link Audit & Company Intelligence)
+    logger.info("\n--- [AGENT 2: INVESTIGATOR AGENT] Deep Link & Due Diligence Audit ---")
     verified_jobs = []
-    scam_count = 0
-    for job in fresh_jobs:
-        report = verifier.verify(job)
-        if report.is_legitimate:
+    dropped_count = 0
+
+    for job in unseen_jobs:
+        report = investigator.investigate(job)
+        if report.is_legitimate and report.is_link_active:
             job.is_verified = True
             job.verification_reason = report.reason
             verified_jobs.append(job)
         else:
-            scam_count += 1
-            logger.warning(f"🚫 [SCAM/UNTRUSTED REJECTED] '{job.title}' at '{job.company}' -> {report.reason}")
+            dropped_count += 1
+            logger.info(f"🚫 [DROPPED / DEAD / SCAM] '{job.title}' @ '{job.company}' -> {report.reason}")
 
-    logger.info(f"🛡️ Verification complete: {len(verified_jobs)} legitimate, {scam_count} rejected.")
+    logger.info(f"[InvestigatorAgent] Verified active: {len(verified_jobs)} | Dropped (404/expired/scam): {dropped_count}")
 
-    # 5. Eligibility & Funding Filtering (Ghana Undergrad + Remote/Fully-Funded)
-    eligible_jobs = []
-    ineligible_count = 0
+    # 4. Agent 3: Cognitive Extraction Agent (Groq + Gemini LLM Parsing)
+    logger.info("\n--- [AGENT 3: COGNITIVE AGENT] Groq & Gemini Intelligence Extraction ---")
+    enriched_jobs = []
     for job in verified_jobs:
-        report = eligibility_filter.evaluate(job)
-        if report.is_eligible:
-            job.eligibility_score = report.match_score
-            eligible_jobs.append(job)
-        else:
-            ineligible_count += 1
-            logger.info(f"❌ [INELIGIBLE] '{job.title}' at '{job.company}' -> {report.reasons[0] if report.reasons else 'Failed criteria'}")
-
-    total_eligible = len(eligible_jobs)
-    logger.info(f"🎯 Eligibility screening complete: {total_eligible} match criteria ({ineligible_count} ineligible).")
-
-    # 6. Ranking & Top-3 Selection
-    ranked_jobs = ranker.rank(eligible_jobs)
-    top_3_jobs = ranker.select_top_n(ranked_jobs, n=3)
-
-    logger.info("\n" + "=" * 60)
-    logger.info("🏆 TOP 3 PROMISING OPPORTUNITIES SELECTED FOR TODAY:")
-    logger.info("=" * 60)
-    for idx, opp in enumerate(top_3_jobs, start=1):
+        enriched_job = cognitive.analyze(job)
+        enriched_jobs.append(enriched_job)
         logger.info(
-            f"#{idx} [{opp.ranking_score:.1f}/100] {opp.title} @ {opp.company}\n"
-            f"    Track: {opp.track_name}\n"
-            f"    Funding: {opp.funding_tier.value}\n"
-            f"    URL: {opp.url}"
+            f"🧠 [Extracted] {job.title} @ {job.company} | Field: {job.field_category} | "
+            f"Mode: {job.work_mode.value} | Funding: {job.outside_ghana_funding} | Pay: {job.compensation_details}"
         )
 
-    # 7. Persistence (Google Sheets / CSV Fallback)
-    if not dry_run:
-        sheets_adapter.append_opportunities(ranked_jobs)
-        for job in fresh_jobs:
-            deduplicator.mark_seen(job)
-        deduplicator.save()
-    else:
-        logger.info("[Dry Run] Skipping Google Sheets append and seen_jobs cache update.")
-        # Still record to CSV in dry-run for inspection
-        sheets_adapter.append_opportunities(ranked_jobs)
+    # 5. Agent 4: Curator & Dispatch Agent (Ranking, Google Sheets & Top 3 Email)
+    logger.info("\n--- [AGENT 4: CURATOR AGENT] Balanced Quota Ranking & Delivery ---")
+    top_3_curated = curator.select_balanced_top_3(enriched_jobs)
 
-    # 8. Notification (Top 3 Email Digest / HTML Preview)
-    email_notifier.send_top_opportunities_digest(
-        top_opportunities=top_3_jobs,
+    logger.info("\n" + "=" * 65)
+    logger.info("🏆 CURATED TOP 3 DIVERSE OPPORTUNITIES FOR TODAY:")
+    logger.info("=" * 65)
+    for idx, opp in enumerate(top_3_curated, start=1):
+        dossier = opp.company_dossier
+        logger.info(
+            f"#{idx} [{opp.ranking_score:.1f}/100] {opp.title} @ {opp.company}\n"
+            f"    Field: {opp.field_category} | Mode: {opp.work_mode.value}\n"
+            f"    Company Overview: {dossier.overview[:90]}...\n"
+            f"    Funding (Outside Ghana): {opp.outside_ghana_funding} | Pay: {opp.compensation_details}\n"
+            f"    Proof: {opp.application_proof}\n"
+            f"    Apply: {opp.url}"
+        )
+
+    # Deliver to Google Sheets and Dispatch Email
+    curator.deliver(
+        all_verified_jobs=enriched_jobs,
+        top_3_jobs=top_3_curated,
         total_scanned=total_scanned,
-        total_eligible=total_eligible,
         dry_run=dry_run,
     )
 
-    logger.info("\n✅ PIPELINE RUN COMPLETED SUCCESSFULLY.")
+    # Save deduplication cache
+    if not dry_run:
+        for job in unseen_jobs:
+            deduplicator.mark_seen(job)
+        deduplicator.save()
+    else:
+        logger.info("[Dry Run] Skipping deduplication cache update.")
+
+    logger.info("\n✅ MULTI-AGENT INTELLIGENCE PIPELINE COMPLETED SUCCESSFULLY.")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Autonomous Opportunity Finder & Verification Engine")
-    parser.add_argument("--dry-run", action="store_true", help="Run without sending real emails or committing cache")
-    parser.add_argument("--limit", type=int, default=15, help="Limit items per scraper source")
+    parser = argparse.ArgumentParser(description="Multi-Agent Opportunity Intelligence System")
+    parser.add_argument("--dry-run", action="store_true", help="Run without live SMTP email or committing cache")
+    parser.add_argument("--limit", type=int, default=10, help="Limit items per scraper source")
     parser.add_argument("--skip-search", action="store_true", help="Skip web search dorking for quick testing")
     parser.add_argument("--verbose", action="store_true", help="Enable debug logging")
 

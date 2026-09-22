@@ -7,7 +7,7 @@ research programs (Flights + Housing + Stipend + Visa) open to international und
 import logging
 from typing import List, Optional
 from src.scrapers.base_scraper import BaseScraper
-from src.models import JobOpportunity, WorkMode, FundingBenefits, FundingTier
+from src.models import JobOpportunity, WorkMode, FundingBenefits, FundingTier, CompanyDossier
 
 logger = logging.getLogger(__name__)
 
@@ -40,7 +40,7 @@ class ResearchPortalsScraper(BaseScraper):
         {
             "company": "EPFL (École Polytechnique Fédérale de Lausanne)",
             "title": "EPFL Summer Research Fellowship in Computer Science (E3)",
-            "url": "https://www.epfl.ch/schools/ic/research/summer-at-epfl/",
+            "url": "https://www.epfl.ch/schools/ic/education/summer-at-epfl/",
             "location": "Lausanne, Switzerland",
             "track_name": "AI Solutions / Agent Engineer Intern",
             "description": (
@@ -161,6 +161,52 @@ class ResearchPortalsScraper(BaseScraper):
                 summary="Tier 2 Global Remote: Full stipend from Google, work from home in Ghana"
             ),
             "deadline": "March - April annually",
+        },
+        {
+            "company": "United Nations (UN Careers)",
+            "title": "United Nations Global Secretariat Internship Programme",
+            "url": "https://careers.un.org/lbw/home.aspx?viewtype=SJ&exp=All&level=0&occ=0&sub=0&sort=3",
+            "location": "Geneva / New York / Nairobi / Remote",
+            "track_name": "International Relations, Policy & Law Intern",
+            "field": "Policy, Law & Social Impact",
+            "overview": "The premier intergovernmental organization maintaining international peace, security, and human rights.",
+            "description": (
+                "Open to current undergraduate and graduate students worldwide. Opportunities in economic affairs, "
+                "sustainable development, human rights, public health, information systems, and translation. "
+                "Official United Nations student trainee framework with diplomatic mentorship."
+            ),
+            "benefits": FundingBenefits(
+                flight_covered=False,
+                housing_covered=False,
+                stipend_provided=True,
+                stipend_details="Monthly living allowance in select duty stations",
+                visa_sponsorship=True,
+                summary="Global Diplomatic & Policy Internship: Official UN Certificate and G-4 visa support"
+            ),
+            "deadline": "Year-round rolling cohorts",
+        },
+        {
+            "company": "World Health Organization (WHO)",
+            "title": "WHO Global Health & Biomedical Internship Programme",
+            "url": "https://www.who.int/careers/internship-programme",
+            "location": "Geneva, Switzerland / Regional Offices",
+            "track_name": "Public Health, Medicine & Biomedical Intern",
+            "field": "Healthcare, Medicine & Public Health",
+            "overview": "Specialized United Nations agency responsible for international public health.",
+            "description": (
+                "Internships for students of public health, medicine, health policy, biological sciences, and epidemiology. "
+                "WHO provides full medical and accident insurance, plus a monthly living allowance for eligible students "
+                "from developing countries to ensure equitable access."
+            ),
+            "benefits": FundingBenefits(
+                flight_covered=False,
+                housing_covered=False,
+                stipend_provided=True,
+                stipend_details="Monthly living allowance + medical insurance coverage",
+                visa_sponsorship=True,
+                summary="Tier 2/3 Funded: Living allowance provided for eligible international scholars"
+            ),
+            "deadline": "Winter & Summer cohorts annually",
         }
     ]
 
@@ -177,25 +223,37 @@ class ResearchPortalsScraper(BaseScraper):
             url = prog["url"]
             job_id = self.generate_id(company, title, url)
 
+            is_tier1 = prog["benefits"].flight_covered and prog["benefits"].housing_covered
+            funding_label = "Fully Funded" if is_tier1 else "Partially Funded"
+
             opp = JobOpportunity(
                 id=job_id,
                 title=title,
                 company=company,
                 location=prog["location"],
                 url=url,
-                source="Verified Research Fellowship Portal",
-                track_name=prog["track_name"],
+                source="Verified Global Fellowship Portal",
+                field_category=prog.get("field", "Academic & Scientific Research"),
+                track_name=prog.get("track_name", "Academic Research"),
                 description_snippet=prog["description"],
                 work_mode=WorkMode.ONSITE_ABROAD if "Remote" not in prog["location"] else WorkMode.REMOTE_WORLDWIDE,
                 funding_benefits=prog["benefits"],
+                outside_ghana_funding=funding_label,
                 funding_tier=(
                     FundingTier.TIER_1_FULLY_FUNDED
-                    if prog["benefits"].flight_covered and prog["benefits"].housing_covered
+                    if is_tier1
                     else FundingTier.TIER_2_GLOBAL_REMOTE_PAID
+                ),
+                company_dossier=CompanyDossier(
+                    overview=prog.get("overview", f"World-class institution: {company}"),
+                    org_type="Multilateral / University / Research Lab",
+                    headquarters=prog["location"],
+                    credibility_indicators="Internationally Recognized Accredited Entity",
                 ),
                 deadline=prog.get("deadline"),
                 is_verified=True,
-                verification_reason="Institutional accredited research program",
+                verification_reason="Institutional accredited research / fellowship program",
+                application_proof="Official Institutional Portal",
                 raw_metadata={"program_type": "Fellowship / Research"},
             )
             results.append(opp)

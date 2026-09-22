@@ -19,14 +19,16 @@ class DeepSearchEngine(BaseScraper):
     """Executes targeted web dorks and search queries to discover unlisted opportunities."""
 
     SEARCH_DORKS = [
-        # Wildcard ATS searches across all companies worldwide
-        'site:boards.greenhouse.io ("intern" OR "internship") ("Agent" OR "MLOps" OR "Embedded" OR "Robotics" OR "SWE")',
-        'site:jobs.lever.co ("intern" OR "internship") ("Remote" OR "Worldwide" OR "Relocation" OR "Hardware")',
-        'site:ashbyhq.com ("intern" OR "internship") ("AI" OR "Systems" OR "Data" OR "Cloud")',
-        # Academic and funded fellowship discovery
-        '("fully funded" OR "flight and accommodation" OR "stipend provided") ("undergraduate" OR "student") ("research internship" OR "summer fellowship")',
+        # Wildcard ATS across all fields worldwide (Business, Tech, Operations, Design, Finance)
+        'site:boards.greenhouse.io ("intern" OR "internship" OR "fellowship") ("Remote" OR "Worldwide" OR "Ghana" OR "Relocation")',
+        'site:jobs.lever.co ("intern" OR "internship" OR "fellowship") ("Remote" OR "Worldwide" OR "Ghana")',
+        'site:ashbyhq.com ("intern" OR "internship") ("Remote" OR "Worldwide")',
+        # Ghana local & regional internship discovery
+        'site:jobberman.com.gh/job-listing ("intern" OR "internship" OR "trainee" OR "service personnel")',
+        # Funded global undergraduate fellowships (Any discipline)
+        '("fully funded" OR "flight and accommodation" OR "stipend provided") ("undergraduate" OR "student") ("internship" OR "fellowship")',
         # LinkedIn public indexed postings
-        'site:linkedin.com/jobs/view ("intern" OR "fellow") ("visa sponsorship" OR "remote worldwide" OR "stipend")',
+        'site:linkedin.com/jobs/view ("intern" OR "internship") ("Ghana" OR "Remote Worldwide" OR "visa sponsorship")',
     ]
 
     def __init__(self, queries: Optional[List[str]] = None, timeout: int = 15):

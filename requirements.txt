@@ -11,6 +11,9 @@ pydantic>=2.5.0
 gspread>=6.0.0
 google-auth>=2.27.0
 
+# AI & LLM Inference (Multi-Agent Cognitive Engine)
+groq>=0.9.0
+
 # Utilities & Environment
 python-dotenv>=1.0.0
 

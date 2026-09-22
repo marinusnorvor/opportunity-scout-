@@ -132,31 +132,43 @@ class EmailNotifier:
 
             all_badges = "".join([flight_badge, housing_badge, stipend_badge, visa_badge]) or "<span>Standard Paid Compensation</span>"
 
+            dossier = job.company_dossier
             cards_html += f"""
             <div style="background: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                     <div>
                         <span style="background: #eef2ff; color: #3730a3; font-weight: 600; font-size: 12px; padding: 3px 8px; border-radius: 12px; text-transform: uppercase;">
-                            #{idx} • {job.track_name or 'Technical Track'}
+                            #{idx} • {job.field_category or 'General Field'}
                         </span>
                         <h2 style="margin: 8px 0 4px 0; font-size: 18px; color: #111827; font-weight: 700;">
                             {job.title}
                         </h2>
-                        <div style="font-size: 14px; color: #4b5563; margin-bottom: 12px;">
+                        <div style="font-size: 14px; color: #4b5563; margin-bottom: 10px;">
                             <strong>{job.company}</strong> &nbsp;•&nbsp; 📍 {job.location} &nbsp;•&nbsp; 🏆 Match Score: <strong>{job.ranking_score:.1f}/100</strong>
                         </div>
                     </div>
                 </div>
 
-                <div style="margin: 12px 0;">
+                <div style="margin: 10px 0;">
                     {all_badges}
                 </div>
 
+                <!-- Company Intelligence Dossier -->
+                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 12px; font-size: 13px; color: #166534; margin-bottom: 12px;">
+                    <div style="font-weight: 700; margin-bottom: 3px;">🏢 About {job.company} ({dossier.org_type}):</div>
+                    <div>{dossier.overview}</div>
+                    <div style="margin-top: 4px; font-size: 12px; color: #15803d;">
+                        📍 <strong>HQ / Base:</strong> {dossier.headquarters} &nbsp;|&nbsp; 🛡️ {dossier.credibility_indicators}
+                    </div>
+                </div>
+
+                <!-- Role Details & Proof -->
                 <div style="background: #f9fafb; padding: 12px; border-radius: 6px; font-size: 13px; color: #374151; margin-bottom: 14px; border-left: 3px solid #4f46e5;">
-                    <div style="font-weight: 600; margin-bottom: 4px; color: #1e1b4b;">Funding & Eligibility Highlights:</div>
+                    <div style="font-weight: 600; margin-bottom: 4px; color: #1e1b4b;">Opportunity Overview:</div>
                     <div>{job.description_snippet[:240]}...</div>
                     <div style="margin-top: 6px; font-size: 12px; color: #6b7280;">
-                        ⏳ <strong>Deadline:</strong> {job.deadline or 'Rolling Admissions'} &nbsp;|&nbsp; 🛡️ <strong>Integrity:</strong> Verified Legitimate
+                        ⏳ <strong>Deadline:</strong> {job.deadline or 'Rolling Admissions'} &nbsp;|&nbsp; 
+                        🔍 <strong>Application Proof:</strong> {job.application_proof}
                     </div>
                 </div>
 

@@ -20,7 +20,16 @@ class RemoteFeedScraper(BaseScraper):
 
     def __init__(self, categories: Optional[List[str]] = None, timeout: int = 15):
         super().__init__(name="RemoteFeedScraper", timeout=timeout)
-        self.categories = categories or ["software-dev", "data", "devops", "product"]
+        self.categories = categories or [
+            "software-dev",
+            "data",
+            "product",
+            "marketing",
+            "finance-legal",
+            "customer-support",
+            "writing",
+            "design",
+        ]
 
     def fetch_opportunities(self, limit: Optional[int] = None) -> List[JobOpportunity]:
         """Fetch remote jobs and extract internship / junior opportunities."""
@@ -59,6 +68,7 @@ class RemoteFeedScraper(BaseScraper):
                     location=f"Remote ({location_req or 'Worldwide'})",
                     url=job_url,
                     source="Remotive Global Feed",
+                    field_category=category.replace("-", " ").title(),
                     work_mode=WorkMode.REMOTE_WORLDWIDE,
                     description_snippet=desc[:1200],
                     raw_metadata={

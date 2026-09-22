@@ -31,11 +31,14 @@
         "no_application_fee": true
       },
       "interest_areas": [
-        "AI & Machine Learning",
-        "Core Software & Systems",
-        "Hardware, Embedded & Robotics",
-        "Technical Product & Business",
-        "Academic & Research Internships"
+        "All Fields (Open to Any Legitimate Internship)",
+        "Business, Finance, Banking & Consulting",
+        "Technology, Software, AI & Engineering",
+        "Healthcare, Pharmacy, Biology & Public Health",
+        "Law, Public Policy & International Relations",
+        "Media, Communications, Arts & Design",
+        "Agriculture, Environment & Sustainable Development",
+        "NGOs & Social Impact"
       ]
     },
     "alert_settings": {
