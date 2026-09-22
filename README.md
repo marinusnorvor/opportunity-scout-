@@ -33,40 +33,36 @@ The system actively monitors and categorizes opportunities across:
 
 ---
 
-## 🧠 System Architecture & Pipeline Flow
+## 🤖 Multi-Agent System (MAS) Architecture
+
+The platform operates as an orchestrated team of **4 specialized autonomous agents**:
 
 ```
-[ Ingestion & Deep Discovery ]
-  ├── Wildcard ATS Dorker (Any company on Greenhouse, Lever, Ashby, Workday)
-  ├── Open Remote Feeds (Remotive, RemoteOK global remote feeds)
-  ├── Academic Research Portals (CERN, EPFL, ETH Zurich, OIST, KAUST, MPI)
-  └── Open-Source Programs (GSoC, Outreachy, Linux Foundation)
+[ 1. SCOUT AGENT (Broad Ingestion) ]
+  ├── Jobberman Ghana (All categories: Banking, Healthcare, Sales, Admin, Tech)
+  ├── Ghana Enterprise Hubs (Zeepay, Hubtel, Amalitech, MEST, MTN)
+  ├── Global Remote Feeds (Remotive across all fields, RemoteOK)
+  ├── International Fellowship Hubs (United Nations, WHO, CERN, EPFL, OIST, KAUST)
+  └── Wildcard ATS Engine (Greenhouse, Lever, Ashby - Any discipline)
                  │
                  ▼
-[ Deduplication Engine ] ── Skip jobs already seen in `data/seen_jobs.json`
+[ 2. INVESTIGATOR AGENT (Deep Due Diligence & Link Audit) ]
+  ├── Deep DOM Audit (Checks for active application forms, input file upload, apply buttons)
+  ├── Expired-Job Banner Scan (Automatically drops closed, expired, or filled roles)
+  ├── Company Intelligence Dossier (Researches company mission, HQ, size, and credibility)
+  └── Fraud & Scam Sentry (Discards fee-charging extortion and fake recruiters)
                  │
                  ▼
-[ Fraud & Scam Verifier ]
-  ├── Domain Reputation (Trusted ATS vs form traps)
-  ├── Financial Red Flag Scan (Training fees, application deposits)
-  └── Recruiter Authenticity (Enterprise webmail checks)
+[ 3. COGNITIVE EXTRACTION AGENT (Groq + Gemini Dual LLM Router) ]
+  ├── Primary: Groq LLaMA Cloud (Ultra-fast structured JSON parsing under 400ms)
+  ├── Failover: Google Gemini 3.6 Flash (Deep reasoning and quota fallback)
+  └── Structured Fields: Field, Work Mode (Remote/Onsite), Paid/Unpaid, Location, Outside-Ghana Funding
                  │
                  ▼
-[ Eligibility & Funding Classifier ]
-  ├── Visa & Citizenship Gate (Rejects non-sponsoring US/EU only roles)
-  ├── Academic Gate (Undergraduate compatibility)
-  └── Funding Tiers:
-        🥇 Tier 1: Fully Funded Abroad (Flight + Housing + Stipend + Visa)
-        🥈 Tier 2: Global Remote Paid (USD/EUR, work from Ghana)
-        🥉 Tier 3: Partially Funded / Local High-Stipend
-                 │
-                 ▼
-[ Ranking & Selection Engine ] ── Multi-factor score (0-100) & Top 3 track diversity
-                 │
-        ┌────────┴────────┐
-        ▼                 ▼
-[ Google Sheets API ]   [ Email Dispatcher ]
-(Master Spreadsheet)    (Responsive HTML Digest)
+[ 4. CURATOR & DISPATCH AGENT (Delivery) ]
+  ├── Balanced Quota Ranker: Guarantees 1 Ghana Local + 1 Fully Funded Intl + 1 Global Remote
+  ├── Google Sheets API: Logs rich rows with Company Dossiers
+  └── Email Dispatcher: Delivers responsive HTML Top 3 morning digest
 ```
 
 ---
