@@ -94,7 +94,7 @@ You must output ONLY valid JSON matching this schema:
         """Query Groq Cloud API for structured JSON extraction."""
         try:
             response = self.groq_client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
+                model="openai/gpt-oss-20b",
                 messages=[
                     {"role": "system", "content": self.SYSTEM_PROMPT},
                     {"role": "user", "content": prompt},
@@ -111,7 +111,7 @@ You must output ONLY valid JSON matching this schema:
 
     def _call_gemini(self, prompt: str) -> Optional[Dict[str, Any]]:
         """Query Google Gemini API endpoint as fallback."""
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={self.gemini_api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key={self.gemini_api_key}"
         payload = {
             "contents": [
                 {
