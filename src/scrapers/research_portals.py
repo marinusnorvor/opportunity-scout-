@@ -19,7 +19,7 @@ class ResearchPortalsScraper(BaseScraper):
         {
             "company": "CERN (European Organization for Nuclear Research)",
             "title": "Summer Student Programme (Non-Member State Students)",
-            "url": "https://careers.cern/summer-student-programme",
+            "url": "https://home.cern/summer-student-programme",
             "location": "Geneva, Switzerland",
             "track_name": "Computational Research / Applied Math Intern",
             "description": (
@@ -40,7 +40,7 @@ class ResearchPortalsScraper(BaseScraper):
         {
             "company": "EPFL (École Polytechnique Fédérale de Lausanne)",
             "title": "EPFL Summer Research Fellowship in Computer Science (E3)",
-            "url": "https://www.epfl.ch/schools/ic/education/summer-at-epfl/",
+            "url": "https://summer.epfl.ch/",
             "location": "Lausanne, Switzerland",
             "track_name": "AI Solutions / Agent Engineer Intern",
             "description": (
@@ -82,7 +82,7 @@ class ResearchPortalsScraper(BaseScraper):
         {
             "company": "OIST (Okinawa Institute of Science and Technology)",
             "title": "OIST Research Internship Program (AI, Robotics & Computational Science)",
-            "url": "https://admissions.oist.jp/oist-research-internship-program",
+            "url": "https://groups.oist.jp/grad/research-interns",
             "location": "Okinawa, Japan",
             "track_name": "Robotics / Mechatronics Intern",
             "description": (

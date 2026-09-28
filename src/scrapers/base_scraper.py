@@ -66,6 +66,16 @@ class BaseScraper(abc.ABC):
             if is_json:
                 return response.json()
             return response.text
+        except requests.exceptions.SSLError:
+            try:
+                response = self.session.get(url, params=params, timeout=self.timeout, verify=False)
+                response.raise_for_status()
+                if is_json:
+                    return response.json()
+                return response.text
+            except requests.RequestException as exc:
+                logger.warning(f"[{self.name}] Failed request to {url}: {exc}")
+                return None
         except requests.RequestException as exc:
             logger.warning(f"[{self.name}] Failed request to {url}: {exc}")
             return None

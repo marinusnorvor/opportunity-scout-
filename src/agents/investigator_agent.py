@@ -163,6 +163,13 @@ class InvestigatorAgent:
         try:
             resp = self.session.get(url, timeout=self.timeout, allow_redirects=True)
             return resp.text, resp.url, resp.status_code
+        except requests.exceptions.SSLError:
+            try:
+                resp = self.session.get(url, timeout=self.timeout, allow_redirects=True, verify=False)
+                return resp.text, resp.url, resp.status_code
+            except requests.RequestException as retry_exc:
+                logger.debug(f"[InvestigatorAgent] Network error fetching {url}: {retry_exc}")
+                return None, url, 599
         except requests.RequestException as exc:
             logger.debug(f"[InvestigatorAgent] Network error fetching {url}: {exc}")
             return None, url, 599
