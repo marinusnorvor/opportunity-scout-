@@ -256,7 +256,6 @@ opportunity-scout-/
 │   ├── models.py                  # Pydantic v2 schemas
 │   └── main.py                    # Main pipeline orchestrator & CLI
 ├── tests/                         # 28 comprehensive unit tests
-├── DEVELOPMENT_PLAN.md            # Technical roadmap and safety constraints
 ├── requirements.txt
 └── README.md
 ```

@@ -55,3 +55,10 @@ htmlcov/
 # Local run outputs
 output/
 scratch/
+
+# Internal Planning & Development Docs
+*PLAN*.md
+IMPLEMENTATION_PLAN.md
+DEVELOPMENT_PLAN.md
+plan.md
+
