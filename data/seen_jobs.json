@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-27T13:41:36.909819+00:00",
+  "updated_at": "2026-09-28T22:41:22.949447+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -181,6 +181,108 @@
       "company": "World Health Organization (WHO)",
       "url": "https://www.who.int/careers/internship-programme",
       "first_seen": "2026-09-22T06:35:13.556386+00:00"
+    },
+    "5706274efe16e2e6ad1c5ad72714203fc24b50a7be2b11c3aaba1a05f8217226": {
+      "title": "Software & Solutions Engineering Trainee",
+      "company": "Hubtel Ghana",
+      "url": "https://explore.hubtel.com/careers/",
+      "first_seen": "2026-09-28T22:41:22.949335+00:00"
+    },
+    "8e9966159901f38b03040691b7b77665978ca0a964137f4992159246864c8876": {
+      "title": "Technology & Digital Skills Graduate Trainee",
+      "company": "Amalitech Ghana",
+      "url": "https://www.amalitech.com/careers",
+      "first_seen": "2026-09-28T22:41:22.949353+00:00"
+    },
+    "e243db8993602ab4585f59508598d83a1c5d2915986406c74d940db8b586f118": {
+      "title": "Entrepreneurial & Product Management Fellow",
+      "company": "MEST Africa",
+      "url": "https://mestafrica.com/training-program/",
+      "first_seen": "2026-09-28T22:41:22.949363+00:00"
+    },
+    "9ffe7d538d2757246b045868efe58b827fd2af9a6866da156e0a3d694f39ad98": {
+      "title": "Telecommunications & Digital Solutions Intern",
+      "company": "Telecel Ghana",
+      "url": "https://telecel.com.gh/",
+      "first_seen": "2026-09-28T22:41:22.949369+00:00"
+    },
+    "141eb0ad38355f3170749e7f50822991357ad575ae0be42e09660923320bc3c8": {
+      "title": "Summer Student Programme (Non-Member State Students)",
+      "company": "CERN (European Organization for Nuclear Research)",
+      "url": "https://home.cern/summer-student-programme/",
+      "first_seen": "2026-09-28T22:41:22.949374+00:00"
+    },
+    "7f5978fa7de0203ee09907076f70abc2610849c463a260726fe8be15ace3b87b": {
+      "title": "EPFL Summer Research Fellowship in Computer Science (E3)",
+      "company": "EPFL (\u00c9cole Polytechnique F\u00e9d\u00e9rale de Lausanne)",
+      "url": "https://summer.epfl.ch/",
+      "first_seen": "2026-09-28T22:41:22.949380+00:00"
+    },
+    "c13a06debcf3d285038a6d5ef817df2d433e855d10f827b3ab1c4e0c051203a1": {
+      "title": "OIST Research Internship Program (AI, Robotics & Computational Science)",
+      "company": "OIST (Okinawa Institute of Science and Technology)",
+      "url": "https://groups.oist.jp/grad/research-interns",
+      "first_seen": "2026-09-28T22:41:22.949385+00:00"
+    },
+    "425987283a432a897c2d973177933c13f19412bcdd976f2a8218a25e1edecfdc": {
+      "title": "Junior Digital Assets Operations Analyst",
+      "company": "Omega Enterprises",
+      "url": "https://remoteok.com/remote-jobs/remote-junior-digital-assets-operations-analyst-omega-enterprises-1137418",
+      "first_seen": "2026-09-28T22:41:22.949392+00:00"
+    },
+    "f49d93264e48979b78e20c2acfee14e2bc40859d36ced91342a6947126e12796": {
+      "title": "People Operations Coordinator",
+      "company": "Ashby",
+      "url": "https://remoteok.com/remote-jobs/remote-people-operations-coordinator-ashby-1137412",
+      "first_seen": "2026-09-28T22:41:22.949398+00:00"
+    },
+    "c251638432af099f5cded2faf28fc2c35eb6fb324589dda7a3bf9c68c8a8f65e": {
+      "title": "Junior Payroll Assistant",
+      "company": "Sleek",
+      "url": "https://remoteok.com/remote-jobs/remote-junior-payroll-assistant-sleek-1137391",
+      "first_seen": "2026-09-28T22:41:22.949405+00:00"
+    },
+    "111b6cf17d9b319aa431876a2f643781ba1874ce366cb7790b48aace1734f858": {
+      "title": "Marketing Student Assistant",
+      "company": "Copenhagen Optimization",
+      "url": "https://remoteok.com/remote-jobs/remote-marketing-student-assistant-copenhagen-optimization-1137381",
+      "first_seen": "2026-09-28T22:41:22.949410+00:00"
+    },
+    "608f33f9bd5a5fdd10b7010ba9ed41ad579be0b8d8df33cda044ce89d2d11472": {
+      "title": "Junior Crypto Analyst & Trader",
+      "company": "Empire Assets",
+      "url": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-empire-assets-1137307",
+      "first_seen": "2026-09-28T22:41:22.949416+00:00"
+    },
+    "824863f9710213d2a136b57fbdf069540db7ae271710abba5c3c1328e0487d63": {
+      "title": "Senior Contracts and Budget Associate",
+      "company": "Precision Medicine Group",
+      "url": "https://remoteok.com/remote-jobs/remote-senior-contracts-and-budget-associate-precision-medicine-group-1136844",
+      "first_seen": "2026-09-28T22:41:22.949421+00:00"
+    },
+    "aa0419f2a66e2491b18e3265520941c42825e3635910e6cd85d4a71d2bf0411b": {
+      "title": "QA Tester Entry Level",
+      "company": "Ace IT Careers",
+      "url": "https://remoteok.com/remote-jobs/remote-qa-tester-entry-level-ace-it-careers-1136701",
+      "first_seen": "2026-09-28T22:41:22.949428+00:00"
+    },
+    "306e5a31f55f99bb83d2387d4768f3be5c982b9746a0ac4fdfc54d083d205927": {
+      "title": "P2P BD Assistant",
+      "company": "Bybit",
+      "url": "https://remoteok.com/remote-jobs/remote-p2p-bd-assistant-bybit-1136568",
+      "first_seen": "2026-09-28T22:41:22.949433+00:00"
+    },
+    "1173d3d1bdc55a7176b3787464ac504722c3f99ef4d920e08d4f31632241c185": {
+      "title": "Surveyor I",
+      "company": "American Bureau of Shipping (ABS)",
+      "url": "https://remoteok.com/remote-jobs/remote-surveyor-i-american-bureau-of-shipping-abs-1136592",
+      "first_seen": "2026-09-28T22:41:22.949438+00:00"
+    },
+    "b3e957768c0256777df03e00ede7b18eab6de9cb89d8a7b3529877fe58bdf495": {
+      "title": "Operations Engineer II",
+      "company": "AWeber",
+      "url": "https://remoteok.com/remote-jobs/remote-operations-engineer-ii-aweber-1136778",
+      "first_seen": "2026-09-28T22:41:22.949442+00:00"
     }
   }
 }
