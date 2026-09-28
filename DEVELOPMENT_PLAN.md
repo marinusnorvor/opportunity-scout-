@@ -7,7 +7,7 @@ Build, harden, and maintain a 24/7 autonomous Multi-Agent System (MAS) that disc
 1. **No Broken Links:** The Investigator Agent audits the live DOM of every single URL; 404s, expired postings, and pay-to-work scams are discarded before curation.
 2. **Field-Agnostic Breadth:** Opportunities span local Ghanaian enterprises, prestigious fully-funded international research fellowships (covering flights, housing, stipend), and global remote paid internships.
 3. **Zero Secrets in Git:** Sensitive tokens (`GROQ_API_KEY`, `GEMINI_API_KEY`, Google Service Account JSON, SMTP passwords) are strictly stored in `.env` and GitHub Secrets.
-4. **100% Free-Tier Operation:** Works seamlessly within free limits of GitHub Actions (cron `0 8 * * *`), Groq Cloud (`openai/gpt-oss-20b`), Google Gemini (`gemini-3.6-flash`), and Google Sheets.
+4. **100% Free-Tier Operation:** Works seamlessly within free limits of GitHub Actions (cron `0 18 * * *` / 6:00 PM GMT), Groq Cloud (`openai/gpt-oss-20b`), Google Gemini (`gemini-3.6-flash`), and Google Sheets.
 
 ---
 

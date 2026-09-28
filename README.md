@@ -150,7 +150,7 @@ Go to **Settings → Secrets and variables → Actions** in your GitHub reposito
 
 ### Step 3: Automated Schedule & Manual Trigger
 
-* **Schedule:** The workflow `.github/workflows/daily_finder.yml` automatically triggers every morning at **08:00 UTC (8:00 AM Ghana Time)**.
+* **Schedule:** The workflow `.github/workflows/daily_finder.yml` automatically triggers every day at **18:00 UTC (6:00 PM GMT / Ghana Time)**.
 * **Manual Run:** Go to the **Actions** tab in GitHub, select **Daily Autonomous Opportunity Scout**, and click **Run workflow**.
 
 ---

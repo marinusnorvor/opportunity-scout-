@@ -2,8 +2,8 @@ name: Daily Autonomous Opportunity Scout
 
 on:
   schedule:
-    # Runs every day at 08:00 UTC (8:00 AM Ghana Time)
-    - cron: '0 8 * * *'
+    # Runs every day at 18:00 UTC (6:00 PM GMT / Ghana Time)
+    - cron: '0 18 * * *'
   workflow_dispatch:
     # Allows manual trigger at any time from GitHub UI
     inputs:
