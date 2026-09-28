@@ -8,6 +8,7 @@ import json
 import logging
 import os
 import re
+import time
 from typing import Dict, Any, Optional
 import requests
 from src.models import (
@@ -42,10 +43,12 @@ You must output ONLY valid JSON matching this schema:
         groq_api_key: Optional[str] = None,
         gemini_api_key: Optional[str] = None,
         timeout: int = 15,
+        pacing_delay: float = 1.0,
     ):
         self.groq_api_key = (groq_api_key or os.getenv("GROQ_API_KEY") or "").strip()
         self.gemini_api_key = (gemini_api_key or os.getenv("GEMINI_API_KEY") or "").strip()
         self.timeout = timeout
+        self.pacing_delay = pacing_delay
         self.groq_client = self._init_groq()
 
     def _init_groq(self):
@@ -62,24 +65,22 @@ You must output ONLY valid JSON matching this schema:
     def analyze(self, opp: JobOpportunity) -> JobOpportunity:
         """Run cognitive analysis on the job opportunity using the dual LLM router."""
         logger.info(f"[CognitiveAgent] Analyzing intelligence for '{opp.title}' at '{opp.company}'...")
-        prompt_text = (
-            f"Title: {opp.title}\n"
-            f"Company: {opp.company}\n"
-            f"Location: {opp.location}\n"
-            f"Source: {opp.source}\n"
-            f"Description:\n{opp.description_snippet[:1500]}"
-        )
+        prompt_text = self._prepare_prompt_text(opp)
 
         extracted_data = None
 
-        # 1. Primary Engine: Groq LLaMA 3.3 70B (Fast, free tier)
+        # 1. Primary Engine: Groq Cloud (Fast, free tier)
         if self.groq_client:
             extracted_data = self._call_groq(prompt_text)
+            if self.pacing_delay > 0:
+                time.sleep(self.pacing_delay)
 
         # 2. Secondary Engine: Google Gemini Flash (Fallback)
         if not extracted_data and self.gemini_api_key:
             logger.info("[CognitiveAgent] Groq unavailable or unconfigured. Falling over to Gemini API...")
             extracted_data = self._call_gemini(prompt_text)
+            if self.pacing_delay > 0:
+                time.sleep(self.pacing_delay)
 
         # 3. Tertiary Engine: Intelligent Heuristic Fallback (Runs offline / zero-cost)
         if not extracted_data:
@@ -90,8 +91,50 @@ You must output ONLY valid JSON matching this schema:
         self._apply_extraction(opp, extracted_data)
         return opp
 
+    def _prepare_prompt_text(self, opp: JobOpportunity) -> str:
+        """Prepare prompt with dual head-and-tail text slicing to never miss footer compensation."""
+        desc = opp.description_snippet or ""
+        # If text is under 3000 chars, send all of it
+        if len(desc) <= 3000:
+            formatted_desc = desc
+        else:
+            # Dual window: first 1500 chars (role overview/skills) + last 1500 chars (stipend/benefits/apply)
+            head = desc[:1500]
+            tail = desc[-1500:]
+            formatted_desc = f"{head}\n\n[... middle section omitted ...]\n\n{tail}"
+
+        return (
+            f"Title: {opp.title}\n"
+            f"Company: {opp.company}\n"
+            f"Location: {opp.location}\n"
+            f"Source: {opp.source}\n"
+            f"Description:\n{formatted_desc}\n\n"
+            f"Provide the extracted opportunity attributes strictly in valid JSON format matching the schema."
+        )
+
+    def _clean_json_output(self, raw_content: str) -> Optional[Dict[str, Any]]:
+        """Safely sanitize and extract JSON even if wrapped in markdown fences or conversation."""
+        if not raw_content or not raw_content.strip():
+            return None
+        text = raw_content.strip()
+
+        # 1. Strip markdown fences: ```json ... ``` or ``` ... ```
+        text = re.sub(r"^```(?:json)?\s*", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"\s*```$", "", text)
+
+        # 2. Extract balanced JSON block between first { and last }
+        match = re.search(r"\{.*\}", text, re.DOTALL)
+        if match:
+            text = match.group(0)
+
+        try:
+            return json.loads(text)
+        except Exception as exc:
+            logger.warning(f"[CognitiveAgent] JSON parse error: {exc} | Raw text: {raw_content[:150]}")
+            return None
+
     def _call_groq(self, prompt: str) -> Optional[Dict[str, Any]]:
-        """Query Groq Cloud API for structured JSON extraction."""
+        """Query Groq Cloud API for structured JSON extraction with retry handling."""
         try:
             response = self.groq_client.chat.completions.create(
                 model="openai/gpt-oss-20b",
@@ -104,10 +147,24 @@ You must output ONLY valid JSON matching this schema:
                 max_tokens=600,
             )
             raw_content = response.choices[0].message.content
-            return json.loads(raw_content)
+            return self._clean_json_output(raw_content)
         except Exception as exc:
-            logger.warning(f"[CognitiveAgent] Groq API call failed: {exc}")
-            return None
+            logger.debug(f"[CognitiveAgent] Groq JSON-mode error: {exc}; retrying unconstrained...")
+            try:
+                response = self.groq_client.chat.completions.create(
+                    model="openai/gpt-oss-20b",
+                    messages=[
+                        {"role": "system", "content": self.SYSTEM_PROMPT},
+                        {"role": "user", "content": prompt},
+                    ],
+                    temperature=0.1,
+                    max_tokens=600,
+                )
+                raw_content = response.choices[0].message.content
+                return self._clean_json_output(raw_content)
+            except Exception as retry_exc:
+                logger.warning(f"[CognitiveAgent] Groq API call failed: {retry_exc}")
+                return None
 
     def _call_gemini(self, prompt: str) -> Optional[Dict[str, Any]]:
         """Query Google Gemini API endpoint as fallback."""
@@ -127,7 +184,7 @@ You must output ONLY valid JSON matching this schema:
             if resp.status_code == 200:
                 data = resp.json()
                 text = data["candidates"][0]["content"]["parts"][0]["text"]
-                return json.loads(text)
+                return self._clean_json_output(text)
             logger.warning(f"[CognitiveAgent] Gemini API returned status {resp.status_code}: {resp.text[:120]}")
             return None
         except Exception as exc:

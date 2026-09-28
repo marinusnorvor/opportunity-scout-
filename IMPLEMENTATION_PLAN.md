@@ -142,17 +142,33 @@ This project upgrades the existing internship scout into an autonomous, field-ag
     * Rich HTML cards featuring the Company Dossier, application proof, and funding breakdown.
 
 ### Phase 7: GitHub Actions & Workflow Sync
-- [ ] Update `.github/workflows/daily_finder.yml` to pass `GROQ_API_KEY` and `GEMINI_API_KEY` from secrets.
-- [ ] Ensure backward compatibility for users running locally or in dry-run mode without API keys (safe fallback mode).
+- [x] Update `.github/workflows/daily_finder.yml` to pass `GROQ_API_KEY` and `GEMINI_API_KEY` from secrets.
+- [x] Ensure backward compatibility for users running locally or in dry-run mode without API keys (safe fallback mode).
 
 ### Phase 8: Testing & Verification
-- [ ] Unit tests for:
+- [x] Unit tests for:
   * Deep link inspector (verifying form detection vs expired detection).
   * Company dossier synthesis.
   * Groq/Gemini JSON extraction schema validation.
   * Jobberman Ghana scraper parsing.
   * Balanced quota top-3 selection.
-- [ ] Live dry-run verification to inspect generated `output/opportunities.csv` and `output/latest_email.html`.
+- [x] Live dry-run verification to inspect generated `output/opportunities.csv` and `output/latest_email.html`.
+
+### Phase 9: Edge-Case Hardening & Production Polish (v2.1)
+- [x] **Fix 1: Smart Head-and-Tail Context Window (`CognitiveAgent`)**:
+  * Problem: Descriptions truncated at `[:1500]` cut off compensation, stipend, and travel/housing details located at the bottom of the page.
+  * Solution: Implement dual-window slicing (Head 1,500 chars + Tail 1,500 chars) so the AI reads both role requirements and footer benefits.
+- [x] **Fix 2: Resilient Markdown JSON Sanitizer (`CognitiveAgent`)**:
+  * Problem: LLMs (especially Gemini fallback) occasionally wrap JSON in ````json ... ```` fences, causing `json.loads()` failures.
+  * Solution: Add automated regex cleaner to strip code fences and extract valid `{ ... }` blocks before JSON deserialization.
+- [x] **Fix 3: Pacing & Rate Limit Guard (`CognitiveAgent` & `InvestigatorAgent`)**:
+  * Problem: Rapid-fire requests to Groq (30 RPM free limit) risk HTTP 429 burst errors.
+  * Solution: Add adaptive 1.0s pacing and exponential backoff retry.
+- [x] **Fix 4: Soft-404 & Silent Redirect Detection (`InvestigatorAgent`)**:
+  * Problem: Some dead listings silently redirect to a generic home or career catalog page with HTTP 200.
+  * Solution: Detect URL path stripping (deep `/job/123` redirecting to `/` or `/careers`) and scan for soft-404 markers.
+- [x] **Fix 5: Comprehensive Edge-Case Unit Tests**:
+  * Add unit tests verifying footer stipend preservation, markdown fence cleaning, and soft-404 rejection.
 
 ---
 
@@ -173,3 +189,4 @@ This project upgrades the existing internship scout into an autonomous, field-ag
 * **Zero Broken Links:** No opportunity is added to Google Sheets unless the Investigator Agent successfully navigates the page and detects an active application mechanism.
 * **Rich Company Context:** Every single opportunity provides a clear snapshot of what the organization does and why it is legitimate.
 * **100% Free Tier Compliance:** Operates completely within free tiers of GitHub Actions, Groq Cloud, Google Gemini, and Google Sheets.
+

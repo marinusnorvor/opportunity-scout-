@@ -62,3 +62,52 @@ def test_rejection_of_expired_posting(investigator, monkeypatch):
     assert report.is_link_active is False
     assert report.has_expired_markers is True
     assert "expired" in report.reason.lower()
+
+
+def test_detect_silent_catalog_redirect(investigator, monkeypatch):
+    """Ensure specific vacancy links redirecting to home or careers catalog are flagged as soft-404."""
+    catalog_html = "<html><body><h1>Welcome to our Careers Portal</h1><p>Search open roles.</p></body></html>"
+    # Target was a specific vacancy endpoint, but server redirected to /careers
+    monkeypatch.setattr(
+        investigator,
+        "_fetch_page",
+        lambda url: (catalog_html, "https://company.com/careers", 200),
+    )
+
+    opp = JobOpportunity(
+        id="test-redirect-1",
+        title="Marketing Intern",
+        company="Global Corp",
+        location="Remote",
+        url="https://company.com/jobs/marketing-intern-2026",
+        source="Test",
+    )
+    report = investigator.investigate(opp)
+    assert report.is_link_active is False
+    assert report.has_expired_markers is True
+    assert "Soft-404" in report.flags[0]
+    assert "silently redirected" in report.reason.lower()
+
+
+def test_soft_404_page_not_found_marker(investigator, monkeypatch):
+    """Ensure pages returning 200 OK but with 'Oops! Page not found' are identified as dead."""
+    soft_404_html = "<html><body><h1>Oops! We can't find that page</h1><p>The link might be broken.</p></body></html>"
+    monkeypatch.setattr(
+        investigator,
+        "_fetch_page",
+        lambda url: (soft_404_html, "https://company.com/jobs/old-role", 200),
+    )
+
+    opp = JobOpportunity(
+        id="test-soft-404-1",
+        title="Finance Intern",
+        company="Fin Corp",
+        location="Accra",
+        url="https://company.com/jobs/old-role",
+        source="Test",
+    )
+    report = investigator.investigate(opp)
+    assert report.is_link_active is False
+    assert report.has_expired_markers is True
+    assert "Posting Expired / Closed" in report.flags
+

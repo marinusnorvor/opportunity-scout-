@@ -40,6 +40,11 @@ class InvestigatorAgent:
         r"\bapplication\s+(?:window\s+)?(?:is\s+)?closed\b",
         r"\bthis\s+vacancy\s+is\s+closed\b",
         r"\brole\s+is\s+no\s+longer\s+available\b",
+        r"\bjob\s+has\s+been\s+(?:closed|archived|removed)\b",
+        r"\bthis\s+posting\s+is\s+no\s+longer\s+active\b",
+        r"\bpage\s+(?:is\s+)?no\s+longer\s+available\b",
+        r"\boops!?\s+we\s+can['’]?t\s+find\s+that\s+page\b",
+        r"\bthe\s+page\s+you\s+requested\s+cannot\s+be\s+found\b",
         r"\b404\s+not\s+found\b",
         r"\bpage\s+not\s+found\b",
     ]
@@ -86,12 +91,25 @@ class InvestigatorAgent:
                 reason=f"Link audit failed: URL returned HTTP status {status_code}.",
             )
 
+        # 2. Check for Silent Catalog Redirects (Soft-404)
+        if self._is_silent_catalog_redirect(target_url, final_url):
+            logger.info(f"[InvestigatorAgent] Soft-404 detected: Specific link {target_url} redirected to generic catalog {final_url}")
+            return DeepVerificationReport(
+                is_legitimate=False,
+                is_link_active=False,
+                has_expired_markers=True,
+                trust_score=0.1,
+                domain=urllib.parse.urlparse(final_url).netloc,
+                flags=["Soft-404 / Redirect to Home or Careers Index"],
+                reason="Posting closed: Specific vacancy link silently redirected to generic catalog.",
+            )
+
         # Update canonical URL if redirected
         opportunity.url = final_url
         soup = BeautifulSoup(page_html, "html.parser")
         page_text = soup.get_text(separator=" ").lower()
 
-        # 2. Check for Expired / Closed Job Markers
+        # 3. Check for Expired / Closed Job Markers in Page Content
         for marker in self.EXPIRED_MARKERS:
             if re.search(marker, page_text):
                 logger.info(f"[InvestigatorAgent] Discarded: Post expired ({marker}) at {final_url}")
@@ -245,3 +263,25 @@ class InvestigatorAgent:
         if any(w in combined for w in ["startup", "technologies", "software", "ai", "cloud"]):
             return "Technology Enterprise / Startup"
         return "Corporate Enterprise"
+
+    @staticmethod
+    def _is_silent_catalog_redirect(target_url: str, final_url: str) -> bool:
+        """Detect if a specific job vacancy URL was silently redirected to a generic index/home page."""
+        parsed_target = urllib.parse.urlparse(target_url)
+        parsed_final = urllib.parse.urlparse(final_url)
+
+        target_path = parsed_target.path.strip("/").lower()
+        final_path = parsed_final.path.strip("/").lower()
+
+        # If target was a specific vacancy endpoint (contains /jobs/..., /job/..., /positions/..., or /job-listing/...)
+        is_deep_target = any(
+            pattern in target_path
+            for pattern in ["jobs/", "job/", "positions/", "job-listing/", "vacancy/", "posting/", "/listings/"]
+        )
+        # And final path is the root domain or generic careers catalog
+        is_generic_final = final_path in ["", "careers", "jobs", "home", "en", "about"]
+
+        # If it stripped the deep path to a generic catalog, it's a silent redirect (soft-404)
+        if is_deep_target and is_generic_final:
+            return True
+        return False
