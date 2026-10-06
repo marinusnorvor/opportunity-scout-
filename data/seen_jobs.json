@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T23:23:07.027041+00:00",
+  "updated_at": "2026-10-06T21:55:22.489965+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -307,6 +307,18 @@
       "company": "Cloudflare",
       "url": "https://job-boards.greenhouse.io/cloudflare/jobs/8241790?gh_jid=8241790",
       "first_seen": "2026-10-05T23:23:07.027020+00:00"
+    },
+    "673e3acb2ee51d11a9532d1c6d641bbed394a41eb1f0043e8c60af71b9409b3f": {
+      "title": "Software Engineer Intern (2027)",
+      "company": "Cloudflare",
+      "url": "https://job-boards.greenhouse.io/cloudflare/jobs/8245197?gh_jid=8245197",
+      "first_seen": "2026-10-06T21:55:22.489938+00:00"
+    },
+    "a632ab03cf1af38c7bb9e13a3f3b07e85465e66d4a25bd8c0ba0d52a7ddce290": {
+      "title": "Software Engineer Intern (2027)",
+      "company": "Cloudflare",
+      "url": "https://job-boards.greenhouse.io/cloudflare/jobs/8245211?gh_jid=8245211",
+      "first_seen": "2026-10-06T21:55:22.489961+00:00"
     }
   }
 }
