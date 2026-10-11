@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T20:44:53.565935+00:00",
+  "updated_at": "2026-10-11T21:06:15.142882+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -325,6 +325,12 @@
       "company": "Cloudflare",
       "url": "https://job-boards.greenhouse.io/cloudflare/jobs/7774167?gh_jid=7774167",
       "first_seen": "2026-10-07T22:18:52.510557+00:00"
+    },
+    "10613d571b732eaadd6947d67fd0fc6268ec9fa1b0c4754980f81acd0b1b6a0d": {
+      "title": "Junior Sales Development Representative IT Industry",
+      "company": "Huzzle",
+      "url": "https://remoteok.com/remote-jobs/remote-junior-sales-development-representative-it-industry-huzzle-1137480",
+      "first_seen": "2026-10-11T21:06:15.142862+00:00"
     }
   }
 }
