@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T20:08:03.748942+00:00",
+  "updated_at": "2026-10-17T19:44:39.759241+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -337,6 +337,18 @@
       "company": "Enable Dental",
       "url": "https://remoteok.com/remote-jobs/remote-clinical-coordination-manager-enable-dental-1136096",
       "first_seen": "2026-10-15T20:34:43.372378+00:00"
+    },
+    "e475ce43e52a94465cf256d6ea7b3d06952dd6c8bb7a698df3f6ab19fc65638c": {
+      "title": "Associate Data Scientist",
+      "company": "AlgaeCal",
+      "url": "https://remoteok.com/remote-jobs/remote-associate-data-scientist-algaecal-1137531",
+      "first_seen": "2026-10-17T19:44:39.759208+00:00"
+    },
+    "1598118758c5eb69044a0ff9db002a5ea7e1e758e3751e521e45d8c13ba47154": {
+      "title": "Customer Success Associate",
+      "company": "Voltus",
+      "url": "https://remoteok.com/remote-jobs/remote-customer-success-associate-voltus-1137529",
+      "first_seen": "2026-10-17T19:44:39.759235+00:00"
     }
   }
 }
