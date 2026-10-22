@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T20:56:02.688491+00:00",
+  "updated_at": "2026-10-22T20:52:34.365338+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -349,6 +349,12 @@
       "company": "Voltus",
       "url": "https://remoteok.com/remote-jobs/remote-customer-success-associate-voltus-1137529",
       "first_seen": "2026-10-17T19:44:39.759235+00:00"
+    },
+    "046afd46e9792f2217179e95b2c7eee574641dd980af84d7b643be40bed96423": {
+      "title": "Remote Office Assistant",
+      "company": "Coalition Technologies ",
+      "url": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495",
+      "first_seen": "2026-10-22T20:52:34.365320+00:00"
     }
   }
 }
