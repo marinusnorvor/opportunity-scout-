@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-22T20:52:34.365338+00:00",
+  "updated_at": "2026-10-23T20:41:27.589501+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -355,6 +355,12 @@
       "company": "Coalition Technologies ",
       "url": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495",
       "first_seen": "2026-10-22T20:52:34.365320+00:00"
+    },
+    "b5b51ba7a0e6ace6f059d8cf18ba5f8d996404c61d0ebc9cc70b8cd1650db9c3": {
+      "title": "Machine Learning Research Intern (Summer 2027)",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4735665005",
+      "first_seen": "2026-10-23T20:41:27.589482+00:00"
     }
   }
 }
