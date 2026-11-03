@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-01T21:23:40.408050+00:00",
+  "updated_at": "2026-11-03T00:05:21.671988+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -391,6 +391,18 @@
       "company": "Destination Careers",
       "url": "https://remoteok.com/remote-jobs/remote-client-support-amp-travel-booking-online-destination-careers-1137601",
       "first_seen": "2026-10-31T20:43:19.930731+00:00"
+    },
+    "26e8ac617e46dbcbb0c22f19d98824968346317d6e5b177c154c87a5192ed859": {
+      "title": "Virtual Destination Wedding Coordinator",
+      "company": "Destination Careers",
+      "url": "https://remoteok.com/remote-jobs/remote-virtual-destination-wedding-coordinator-destination-careers-1137611",
+      "first_seen": "2026-11-03T00:05:21.671960+00:00"
+    },
+    "27ad85459ec6a35540caa8177c5281671b4eb9fe44d55ecc84ab58f12d6955ff": {
+      "title": "Virtual Scheduling Assistant",
+      "company": "Destination Careers",
+      "url": "https://remoteok.com/remote-jobs/remote-virtual-scheduling-assistant-destination-careers-1137610",
+      "first_seen": "2026-11-03T00:05:21.671984+00:00"
     }
   }
 }
