@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-05T22:56:22.266246+00:00",
+  "updated_at": "2026-11-06T22:26:48.483270+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -481,6 +481,12 @@
       "company": "Destination Careers",
       "url": "https://remoteok.com/remote-jobs/remote-entry-level-scheduling-amp-coordinating-reservations-online-destination-careers-1137680",
       "first_seen": "2026-11-05T22:56:22.266221+00:00"
+    },
+    "a73dd97a03bb9081cf674fa4632f09f4a409b85898d981059391ada7690a0ca0": {
+      "title": "People Team Intern, HR Transformation (Winter 2027)",
+      "company": "Cloudflare",
+      "url": "https://job-boards.greenhouse.io/cloudflare/jobs/8350166?gh_jid=8350166",
+      "first_seen": "2026-11-06T22:26:48.483251+00:00"
     }
   }
 }
