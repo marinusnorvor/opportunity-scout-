@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-10T00:53:37.670304+00:00",
+  "updated_at": "2026-11-10T22:35:32.014329+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -511,6 +511,18 @@
       "company": "Cloudflare",
       "url": "https://job-boards.greenhouse.io/cloudflare/jobs/8245211?gh_jid=8245211",
       "first_seen": "2026-11-10T00:53:37.670298+00:00"
+    },
+    "d7053faad6e6cd772ffb761f01b05e88a3453aadb045b709f70f2fd73fa55a72": {
+      "title": "Sales",
+      "company": "Hao Zhentu International Mining (Ghana) Ltd.",
+      "url": "https://www.jobberman.com.gh/jobs/sales",
+      "first_seen": "2026-11-10T22:35:32.014301+00:00"
+    },
+    "06adc3d4682f8e5aa976765374d25920512a577bde7f92bc0edf66d9076d9a25": {
+      "title": "Recruiting Coordinator",
+      "company": "Pebl",
+      "url": "https://remoteok.com/remote-jobs/remote-recruiting-coordinator-pebl-1137708",
+      "first_seen": "2026-11-10T22:35:32.014325+00:00"
     }
   }
 }
