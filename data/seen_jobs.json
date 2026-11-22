@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-21T22:28:36.911383+00:00",
+  "updated_at": "2026-11-22T22:53:09.985970+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -553,6 +553,12 @@
       "company": "Ensono",
       "url": "https://remoteok.com/remote-jobs/remote-senior-associate-finance-and-accounting-operations-ensono-1137905",
       "first_seen": "2026-11-21T22:28:36.911362+00:00"
+    },
+    "38bbb533f63b5fd3b8dbd78c77b7b332c74af8af05de6e45321bc4ff347a7a0f": {
+      "title": "Physician Assistant - Virtual Health Assessment",
+      "company": "Oscar Health",
+      "url": "https://remoteok.com/remote-jobs/remote-physician-assistant-virtual-health-assessment-oscar-health-1137938",
+      "first_seen": "2026-11-22T22:53:09.985946+00:00"
     }
   }
 }
