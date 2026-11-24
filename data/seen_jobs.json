@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-22T22:53:09.985970+00:00",
+  "updated_at": "2026-11-24T03:30:07.389124+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -559,6 +559,18 @@
       "company": "Oscar Health",
       "url": "https://remoteok.com/remote-jobs/remote-physician-assistant-virtual-health-assessment-oscar-health-1137938",
       "first_seen": "2026-11-22T22:53:09.985946+00:00"
+    },
+    "4df038a4178b12fe323c995e154f119496b3c3b635c3e6c6cb21924484460e52": {
+      "title": "People Operations Intern (2026/2027 Batch Only)",
+      "company": "Cloudflare",
+      "url": "https://job-boards.greenhouse.io/cloudflare/jobs/8392302?gh_jid=8392302",
+      "first_seen": "2026-11-24T03:30:07.389097+00:00"
+    },
+    "dff6ca56fbe02b65dc240c8bc2428b23c1b58f022f8c402c1e400f225f029100": {
+      "title": "Finance Fellow - Human Frontier Collective",
+      "company": "Scaleai",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4565836005",
+      "first_seen": "2026-11-24T03:30:07.389120+00:00"
     }
   }
 }
