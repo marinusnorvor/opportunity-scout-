@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-24T03:30:07.389124+00:00",
+  "updated_at": "2026-11-25T01:39:04.506626+00:00",
   "seen": {
     "fe5142d4de127f610ac0083d04141285f04af84fb5bede2f350621c4ce413c86": {
       "title": "Summer Student Programme (Non-Member State Students)",
@@ -571,6 +571,24 @@
       "company": "Scaleai",
       "url": "https://job-boards.greenhouse.io/scaleai/jobs/4565836005",
       "first_seen": "2026-11-24T03:30:07.389120+00:00"
+    },
+    "0268e86dc90ae0f10576035dd6d31fb10f17d70bede3bb7b9ec38ce30d62428b": {
+      "title": "Management & business development",
+      "company": "Fearless Operating LTD",
+      "url": "https://www.jobberman.com.gh/jobs/management-business-development",
+      "first_seen": "2026-11-25T01:39:04.506600+00:00"
+    },
+    "64f54f0218e5d704b641b93bd4f659892bfb5e7c2841fc95c40b1134f1d9ada3": {
+      "title": "Real Estate Executive Assistant 21370",
+      "company": "Wing Assistant",
+      "url": "https://remoteok.com/remote-jobs/remote-real-estate-executive-assistant-21370-wing-assistant-1138078",
+      "first_seen": "2026-11-25T01:39:04.506619+00:00"
+    },
+    "c2f18dea7c4d65a79d792f71f13970eead8cfdf5475d97d116878ed39a968bf2": {
+      "title": "Senior Tax Associate",
+      "company": "Real REMAX Group",
+      "url": "https://remoteok.com/remote-jobs/remote-senior-tax-associate-real-remax-group-1138077",
+      "first_seen": "2026-11-25T01:39:04.506623+00:00"
     }
   }
 }
